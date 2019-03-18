@@ -3,6 +3,9 @@ const Node = require('./node');
 class MaxHeap {
 	constructor() {
 		
+		this.parentNodes = [];
+		this.root = null;
+		
 	}
 
 	push(data, priority) {
@@ -14,6 +17,8 @@ class MaxHeap {
 	}
 
 	detachRoot() {
+		this.root = null;
+		parentNodes.shift();
 		
 	}
 
