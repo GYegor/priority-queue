@@ -8,7 +8,7 @@ class Node {
 	}
 
 	appendChild(node) {
-		if (!this.left) {
+		if (this.left == null) {
 			this.left = node;
 			this.left.parent = this;
 			return;
@@ -42,24 +42,35 @@ class Node {
 
 	swapWithParent() {
 		if (!this.parent) return;
-		
-		function parentParent(node) {
-			let x = node;
-			let y = node.parent;
-			let z = node.parent.parent;
-			node.parent.parent = x;
-			node.parent = z;
+		else {
+		// let node = new Node(data, priority);
+			let tempN = this;
+			let tempNP = this.parent;
+			let tempNPP = this.parent.parent;
+			this.parent.parent = tempN;
+			this.parent = tempNPP;
+			// let thisR;
+			// let thisL;
+			// this.appendChild(thisL);
+			// this.appendChild(thisR);
+			// thisL.parent = thisR;
 
-			node.left.parent = node.right;
-			
-			// let r = node.parent.right;
+
+			// if (this == this.parent.left) {
+			// 	this.right = this.parent.right;
+			// 	this.parent.left = this.left;
+			// 	this.left = this.parent;
+			// 	this.left.parent = this.left;
+
+			// }
+		}
+			// node.left.parent = node.right;
+			return;
+			// node.parent.right = node;
 			// node.parent = node.parent.right;
 			
 			// node.left.parent = left.parent.perent.right;
 			// y = node.parent.right;
-		}
-
-		parentParent(this);
 	}
 }
 
